@@ -3,8 +3,9 @@ import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
 import Card from "./components/Card";
+import About from "./About";
 import { useState } from "react";
-
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 function App() {
   // list sample
   let items = ["A", "B", "C", "D", "E"];
@@ -22,9 +23,25 @@ function App() {
   //constants with first variable as boolean and second as setting function
   const [isListVisible, setListVisible] = useState(false);
   const [isAlertVisible, setAlertVisible] = useState(false);
-
   return (
     <div>
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/about">
+                  <Button color="primary">Go to About</Button>
+                </Link>
+              </li>
+            </ul>
+          </nav>
+
+          <Routes>
+            <Route path="/about" Component={About} />
+          </Routes>
+        </div>
+      </Router>
       {isAlertVisible && (
         <Alert onClose={() => setAlertVisible(false)}>alert</Alert>
       )}

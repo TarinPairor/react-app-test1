@@ -4,7 +4,7 @@ import { useState } from "react";
 interface Props {
   children: string;
   color: "primary" | "secondary" | "danger";
-  onClick: () => void;
+  onClick?: () => void;
 }
 function Button({ children, color, onClick }: Props) {
   const myStyle = {
